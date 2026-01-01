@@ -1,14 +1,24 @@
 import styles from './page.module.css'
+import { headers } from 'next/headers'
 
 import Calendar from '@/components/features/Calendar/Calendar'
 import CalendarList from '@/components/features/Calendar/CalendarList'
 
 import { fetchData } from '@/common/dataFetcher'
+import { getMonthRange } from '@/common/dateService'
 
 export default async function Schedule({ searchParams }) {
-    const { year = new Date().getFullYear(), month = (new Date().getMonth()+1) } = await searchParams
+    const timezone = (await headers()).get('x-timezone') || 'UTC'
 
-    const { items } = await fetchData('schedule', { year: year, month: month})
+    const d = new Date()
+    const currentYear = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: timezone }).format(d)
+    const currentMonth = new Intl.DateTimeFormat('en-US', { month: 'numeric', timeZone: timezone }).format(d)
+
+    const { year = currentYear, month = currentMonth } = await searchParams
+
+    const { start, end } = getMonthRange(Number(year), Number(month))
+
+    const { items } = await fetchData('schedule', { start: start, end: end, tz: timezone })
 
     items?.sort((a, b) => b.start - a.start)
 
@@ -16,8 +26,8 @@ export default async function Schedule({ searchParams }) {
         <>
             <div className={styles.container}>
                 <h1>Schedule</h1>
-                <Calendar month={month-1} year={year} items={items} nav={true} />
-                <CalendarList items={items} />
+                <Calendar year={year} month={month - 1} items={items} timezone={timezone} nav={true} />
+                <CalendarList items={items} timezone={timezone} />
             </div>
         </>
     )

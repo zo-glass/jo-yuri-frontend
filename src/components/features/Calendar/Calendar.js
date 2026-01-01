@@ -5,7 +5,7 @@ import Day from './Day'
 import Link from 'next/link'
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc'
 
-export default function Calendar({ year, month, items, nav = false }) {
+export default function Calendar({ year, month, timezone = 'UTC', items, nav = false }) {
 
     year = parseInt(year)
     month = parseInt(month)
@@ -15,7 +15,9 @@ export default function Calendar({ year, month, items, nav = false }) {
     let day = 1
 
     const itemsLookUp = items?.reduce((acc, item) => {
-        const day = new Date(item?.start).getDate()
+        const day = parseInt(
+            new Intl.DateTimeFormat('en-US', { day: 'numeric', timeZone: timezone }).format(new Date(item?.start))
+        )
         acc[day] = true
         return acc
     }, {}) ?? {}
@@ -42,7 +44,7 @@ export default function Calendar({ year, month, items, nav = false }) {
                                                 {(ii === 0 && jj < firstDay) ?
                                                     <></>
                                                 : day < daysInMonth + 1 ?
-                                                    <Day day={day++} month={(month)} year={year} event={itemsLookUp[day - 1] ? true : false} />
+                                                    <Day day={day++} month={(month)} year={year} timezone={timezone} event={itemsLookUp[day - 1] ? true : false} />
                                                 : <></>
                                                 }
                                             </td>

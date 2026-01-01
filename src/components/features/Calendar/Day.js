@@ -1,11 +1,11 @@
 import styles from './Day.module.css'
 
-export default function Day({ day, month, year, event=false }) {
-    const d = new Date()
-    const today = d.getDate()
-    const currentMonth = d.getMonth()
-    const currentYear = d.getFullYear()
-    
+export default function Day({ day, month, year, timezone = 'UTC', event = false }) {
+    const d = new Date();
+    const today = Number(d.toLocaleString('en-US', { day: 'numeric', timeZone: timezone }));
+    const currentMonth = Number(d.toLocaleString('en-US', { month: 'numeric', timeZone: timezone })) - 1;
+    const currentYear = Number(d.toLocaleString('en-US', { year: 'numeric', timeZone: timezone }));
+
     return (
         <>
             <div className={styles.container}>

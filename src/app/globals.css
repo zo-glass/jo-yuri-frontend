@@ -5,11 +5,12 @@
 	--color-soft-orange: rgb(255, 237, 212);
 	--color-pastel-orange: rgb(255, 184, 106);
 	--color-light-gray: rgb(240, 240, 240);
+	--color-medium-gray: rgb(210, 210, 210);
 
 	--heading-default: 8rem;
 	--heading-scale: 1;
 	--heading-responsive-scale: 1;
-  	--heading-ratio: 0.8;
+	--heading-ratio: 0.8;
 }
 
 * {

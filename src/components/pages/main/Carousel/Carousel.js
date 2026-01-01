@@ -4,7 +4,7 @@ import styles from './Carousel.module.css'
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination, Mousewheel } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -16,7 +16,8 @@ export default function Carousel({ items }) {
                 slidesPerView={1}
                 spaceBetween={0}
                 loop={true}
-                modules={[Autoplay, Navigation, Pagination]}
+                modules={[Autoplay, Navigation, Pagination, Mousewheel]}
+                mousewheel={{ forceToAxis: true }}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,

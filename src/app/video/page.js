@@ -51,6 +51,9 @@ export default function Video() {
         <>
             <div className={styles.container}>
                 <h1>Video</h1>
+                <div className={styles.video}>
+                    <iframe src={`https://www.youtube.com/embed/${items[0]?.youtubeId}`} title={items[0]?.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                </div>
                 <GridWrapper columns={2} mobileColumns={1}>
                     {items.slice(1).map((item, index) => (
                         <VideoCard key={index} item={item} />

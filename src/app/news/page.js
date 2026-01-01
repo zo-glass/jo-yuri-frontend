@@ -23,7 +23,7 @@ export const metadata = {
 }
 
 export default async function News() {
-    const { items, nextToken } = await fetchMoreData('news', null, ITEMS_PER_PAGE, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SORT))
+    const { items, nextToken } = await fetchMoreData('news', null, ITEMS_PER_PAGE, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SHORT))
 
     items?.sort((a, b) => b.createdAt - a.createdAt)
 

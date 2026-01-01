@@ -26,6 +26,7 @@ body {
 	align-items: center;
 	background-color: var(--color-dark-white);
 	color: var(--color-light-black);
+	font-family: var(--font-montserrat), var(--font-noto-kr), var(--font-noto-jp), var(--font-noto-sc), sans-serif;
 }
 
 .page {

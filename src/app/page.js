@@ -32,6 +32,8 @@ export default async function Home() {
 
 	carouselItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 	discographyItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
+	galleryItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
+	videoItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 
 	return (
 		<>

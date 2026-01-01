@@ -15,11 +15,11 @@ export default function MusicCard({ item }) {
                     </div>
                     <div className={styles.iconContainer}>
                         {item.spotify &&
-                            <a href={item.spotify} target='noreferrer'>
+                            <a href={item.spotify} target='_blank' rel='noopener noreferrer'>
                                 <FaSpotify className={styles.icon} />
                             </a>}
                         {item.appleMusic &&
-                            <a href={item.appleMusic} target='noreferrer'>
+                            <a href={item.appleMusic} target='_blank' rel='noopener noreferrer'>
                                 <SiApplemusic className={styles.icon} />
                             </a>}
                     </div>

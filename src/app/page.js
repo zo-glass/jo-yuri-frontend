@@ -1,6 +1,8 @@
 import styles from "./page.module.css"
+import { headers } from 'next/headers'
 
 import { getData } from '@/common/apiService'
+import { getMonthRange } from '@/common/dateService'
 
 import Carousel from '@/components/pages/main/Carousel/Carousel'
 import MainDiscography from '@/components/pages/main/MainDiscography/MainDiscography'
@@ -10,6 +12,14 @@ import MainNews from "@/components/pages/main/MainNews/MainNews"
 import MainSchedule from "@/components/pages/main/MainSchedule/MainSchedule"
 
 export default async function Home() {
+	const timezone = (await headers()).get('x-timezone') || 'UTC'
+
+	const now = new Date()
+	const currentYear = new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: timezone }).format(now)
+	const currentMonth = new Intl.DateTimeFormat('en-US', { month: 'numeric', timeZone: timezone }).format(now)
+
+	const { start, end } = getMonthRange(Number(currentYear), Number(currentMonth))
+
 	const [carouselItems, discographyItems, galleryItems, videoItems, newsItems, scheduleItems] = await Promise.all([
 		getData('carousel', {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
@@ -36,7 +46,7 @@ export default async function Home() {
 			tags: ['news']
 		}),
 		getData('schedule', { 
-			params: { year: new Date().getFullYear(), month: (new Date().getMonth()+1)},
+			params: { start: start, end: end, tz: timezone },
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['schedule']
 		}),
@@ -56,7 +66,7 @@ export default async function Home() {
 			<MainGallery items={galleryItems?.items || []} />
 			<MainVideo items={videoItems?.items || []} />
 			<MainNews items={newsItems?.items || []} />
-			<MainSchedule items={scheduleItems?.items || []}/>
+			<MainSchedule items={scheduleItems?.items || []} timezone={timezone} />
 		</>
 	)
 }

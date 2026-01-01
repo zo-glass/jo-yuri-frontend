@@ -1,0 +1,36 @@
+.container {
+    border-top: 1px solid #5e5e5e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.day {
+    margin: 0;
+    margin-top: 4px;
+    padding: 0;
+    font-size: 4rem;
+    width: 6rem;
+    height: 6rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 935px) {
+    .day {
+        font-size: 3rem;
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .day {
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}

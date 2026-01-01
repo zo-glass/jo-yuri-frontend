@@ -1,0 +1,28 @@
+.container {
+    padding: 16px;
+}
+
+.title {
+    --heading-scale: 0.5;
+}
+
+.table {
+    border-collapse: collapse;
+}
+
+.tr, .td {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 935px) {
+    .title {
+        --heading-responsive-scale: 3/4;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .title {
+        --heading-responsive-scale: 1/2;
+    }
+}

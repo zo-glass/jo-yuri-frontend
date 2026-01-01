@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chevron.disabled {
+    cursor: default;
+    opacity: 0.34;
+}
+
+.pages {
+    display: flex;
+    align-items: center;
+}
+
+.currentPage {
+    background-color: var(--color-soft-orange);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.totalPages {
+    padding-left: 8px;
+}

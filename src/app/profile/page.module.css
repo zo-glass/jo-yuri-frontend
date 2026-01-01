@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    --heading-scale: 2/3;
+}
+
+.profileImage {
+    border-radius: 100%;
+    width: 293px;
+    height: 293px;
+}
+
+@media screen and (max-width: 605px) {
+    .profileImage {
+        width: 150px;
+        height: 150px;
+    }
+}

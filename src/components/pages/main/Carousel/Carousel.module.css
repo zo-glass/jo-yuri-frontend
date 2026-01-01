@@ -1,0 +1,94 @@
+.swiper {
+	width: 100%;
+}
+
+.container {
+	position: relative;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 3 / 2;
+	border-radius: 6px;
+	object-fit: cover;
+}
+
+.textContainer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding-bottom: 20px;
+	border-radius: 6px;
+}
+
+.lightText {
+	background: linear-gradient(to top, rgb(0, 0, 0, 0.8), transparent);
+	color: var(--color-dark-white);
+}
+
+.darkText {
+	/*background: linear-gradient(to top, rgb(255, 255, 255, 0.2), transparent);*/
+	color: var(--color-light-black);
+}
+
+.title, .subTitle {
+	padding-inline: 40px;
+	--heading-scale: 1/3;
+	text-align: justify;
+}
+
+.title {
+	font-weight: 400;
+}
+
+.navButton {
+	z-index: 2;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 16px 8px;
+	width: 30px;
+	height: 30px;
+	color: white;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.prev {
+	left: 0px;
+}
+
+.next {
+	right: 0px;
+}
+
+.swiper :global(.swiper-pagination-bullet) {
+	background-color: white;
+	opacity: 0.4;
+}
+
+.swiper :global(.swiper-pagination-bullet-active) {
+	background-color: white;
+	opacity: 1;
+}
+
+@media screen and (max-width: 935px) {
+	.swiper {
+		width: 100vw;
+		margin-left: calc(50% - 50vw) !important;
+	}
+
+	.image {
+		border-radius: 0px;
+	}
+
+	.textContainer {
+		padding-bottom: 8px;
+	}
+
+	.title, .subTitle {
+		--heading-scale: 1/2;
+	}
+}

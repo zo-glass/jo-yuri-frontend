@@ -9,12 +9,12 @@
 @media screen and (max-width: 935px) {
     .container {
         grid-template-columns: repeat(var(--mobile-columns), minmax(0, 1fr));
-        padding-inline: 16vw;
+        padding-inline: var(--custom-padding, 16vw);
     }
 }
 
 @media screen and (max-width: 605px) {
 	.container {
-		padding-inline: 8vw;
+		padding-inline: var(--custom-padding, 8vw);
 	}
 }

@@ -4,9 +4,10 @@ import { getData } from '@/common/apiService'
 
 import Carousel from '@/components/pages/main/Carousel/Carousel'
 import MainDiscography from '@/components/pages/main/MainDiscography/MainDiscography'
+import MainGallery from '@/components/pages/main/MainGallery/MainGallery'
 
 export default async function Home() {
-	const [carouselItems, discographyItems] = await Promise.all([
+	const [carouselItems, discographyItems, galleryItems] = await Promise.all([
 		getData('carousel', {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['carousel']
@@ -15,7 +16,12 @@ export default async function Home() {
 			params: { limit: 4 },
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['discography']
-		})
+		}),
+		getData('gallery', { 
+			params: { limit: 6 },
+			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			tags: ['gallery']
+		}),
 	])
 
 	carouselItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
@@ -25,6 +31,7 @@ export default async function Home() {
 		<>
 			<Carousel items={carouselItems?.items || []} />
 			<MainDiscography items={discographyItems?.items || []} />
+			<MainGallery items={galleryItems?.items || []} />
 		</>
 	)
 }

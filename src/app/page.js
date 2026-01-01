@@ -6,9 +6,10 @@ import Carousel from '@/components/pages/main/Carousel/Carousel'
 import MainDiscography from '@/components/pages/main/MainDiscography/MainDiscography'
 import MainGallery from '@/components/pages/main/MainGallery/MainGallery'
 import MainVideo from "@/components/pages/main/MainVideo/MainVideo"
+import MainNews from "@/components/pages/main/MainNews/MainNews"
 
 export default async function Home() {
-	const [carouselItems, discographyItems, galleryItems, videoItems] = await Promise.all([
+	const [carouselItems, discographyItems, galleryItems, videoItems, newsItems] = await Promise.all([
 		getData('carousel', {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['carousel']
@@ -28,12 +29,18 @@ export default async function Home() {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['video']
 		}),
+		getData('news', { 
+			params: { limit: 3 },
+			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			tags: ['news']
+		}),
 	])
 
 	carouselItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 	discographyItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 	galleryItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 	videoItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
+	newsItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
 
 	return (
 		<>
@@ -41,6 +48,7 @@ export default async function Home() {
 			<MainDiscography items={discographyItems?.items || []} />
 			<MainGallery items={galleryItems?.items || []} />
 			<MainVideo items={videoItems?.items || []} />
+			<MainNews items={newsItems?.items || []} />
 		</>
 	)
 }

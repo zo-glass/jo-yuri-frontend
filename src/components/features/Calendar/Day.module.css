@@ -19,6 +19,23 @@
     align-items: center;
 }
 
+.day.today {
+    background-color: var(--color-soft-orange);
+    border-radius: 100%;
+}
+
+.event {
+    aspect-ratio: 1/1;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-bottom: 8px;
+}
+
+.event.active {
+    background-color: var(--color-light-black);
+}
+
 @media screen and (max-width: 935px) {
     .day {
         font-size: 3rem;

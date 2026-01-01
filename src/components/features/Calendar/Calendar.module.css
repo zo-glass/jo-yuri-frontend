@@ -2,8 +2,22 @@
     padding: 16px;
 }
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    font-size: 3rem;
+}
+
 .title {
     --heading-scale: 0.5;
+}
+
+.chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .table {
@@ -15,6 +29,10 @@
     padding: 0;
 }
 
+.weekDay {
+    font-size: 1.2rem;
+}
+
 @media screen and (max-width: 935px) {
     .title {
         --heading-responsive-scale: 3/4;
@@ -22,6 +40,10 @@
 }
 
 @media screen and (max-width: 605px) {
+    .nav {
+        font-size: 2rem;
+    }
+
     .title {
         --heading-responsive-scale: 1/2;
     }

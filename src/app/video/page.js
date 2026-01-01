@@ -23,7 +23,7 @@ export const metadata = {
 }
 
 export default async function Video() {
-    const { items, nextToken } = await fetchMoreData('video', null, ITEMS_PER_PAGE + 1, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SORT))
+    const { items, nextToken } = await fetchMoreData('video', null, ITEMS_PER_PAGE + 1, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SHORT))
 
     items?.sort((a, b) => b.createdAt - a.createdAt)
 

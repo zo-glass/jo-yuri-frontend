@@ -16,7 +16,7 @@ export default function LoadMore({ initialItems, nextToken, size }) {
 
     const loadMore = async () => {
         setLoading(true)
-        const { items, nextToken } = await fetchMoreData('news', token, size, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SORT))
+        const { items, nextToken } = await fetchMoreData('news', token, size, Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME_SHORT))
 
         items?.sort((a, b) => b.createdAt - a.createdAt)
 

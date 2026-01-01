@@ -37,12 +37,12 @@ export default async function Home() {
 		}),
 		getData('video', { 
 			params: { limit: 3 },
-			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			revalidate: Number(process.env.REVALIDATE_TIME_SHORT),
 			tags: ['video']
 		}),
 		getData('news', { 
 			params: { limit: 3 },
-			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			revalidate: Number(process.env.REVALIDATE_TIME_SHORT),
 			tags: ['news']
 		}),
 		getData('schedule', { 

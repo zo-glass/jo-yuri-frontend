@@ -9,6 +9,21 @@ import { fetchPaginatedData } from '@/common/dataFetcher'
 
 const ITEMS_PER_PAGE = (3) * 4
 
+export const metadata = {
+    title: "Jo Yuri - Gallery",
+    description: "Jo Yuri Photos",
+    keywords: [
+        "Yuri",
+        "Jo Yuri",
+        "조유리",
+        "Jo Yuri Gallery",
+    ],
+    openGraph: {
+        title: "Jo Yuri - Gallery",
+        description: "Jo Yuri Photos",
+    },
+}
+
 export default async function Gallery({ searchParams }) {
     const { page = 1 } = await searchParams
 

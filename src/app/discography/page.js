@@ -9,6 +9,21 @@ import { fetchPaginatedData } from '@/common/dataFetcher'
 
 const ITEMS_PER_PAGE = (2) * 2
 
+export const metadata = {
+    title: "Jo Yuri - Discography",
+    description: "Jo Yuri Music",
+    keywords: [
+        "Yuri",
+        "Jo Yuri",
+        "조유리",
+        "Jo Yuri Discography",
+    ],
+    openGraph: {
+        title: "Jo Yuri - Discography",
+        description: "Jo Yuri Music",
+    },
+}
+
 export default async function Discography({ searchParams }) {
     const { page = 1 } = await searchParams
 

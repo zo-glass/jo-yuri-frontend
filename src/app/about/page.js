@@ -12,6 +12,25 @@ const sns = [
     },
 ]
 
+export const metadata = {
+    title: "Jo Yuri - About",
+    description: "About zo.glass",
+    keywords: [
+        "Yuri",
+        "Jo Yuri",
+        "조유리",
+        "Jo Yuri About",
+    ],
+    openGraph: {
+        title: "Jo Yuri - About",
+        description: "About zo.glass",
+    },
+    robots: {
+        index: false,
+        follow: false,
+    },
+}
+
 export default function About() {
     return (
         <>

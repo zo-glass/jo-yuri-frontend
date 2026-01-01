@@ -7,6 +7,21 @@ import CalendarList from '@/components/features/Calendar/CalendarList'
 import { fetchData } from '@/common/dataFetcher'
 import { getMonthRange } from '@/common/dateService'
 
+export const metadata = {
+    title: "Jo Yuri - Schedule",
+    description: "Jo Yuri Events",
+    keywords: [
+        "Yuri",
+        "Jo Yuri",
+        "조유리",
+        "Jo Yuri Schedule",
+    ],
+    openGraph: {
+        title: "Jo Yuri - Schedule",
+        description: "Jo Yuri Events",
+    },
+}
+
 export default async function Schedule({ searchParams }) {
     const timezone = (await headers()).get('x-timezone') || 'UTC'
 

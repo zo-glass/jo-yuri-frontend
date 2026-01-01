@@ -3,6 +3,19 @@
 import { create, read } from '@/common/redisCache'
 import { getData } from '@/common/apiService'
 
+export async function fetchData(path, params = {}, revalidate=0) {
+    
+    const res = await getData(path, {
+        params: params,
+        revalidate: revalidate,
+        tags: [path]
+    })
+
+    const items = res?.items || []
+
+    return { items }
+}
+
 export async function fetchPaginatedData(path, page, itemsPerPage, revalidate=0) {
 
     const offset = (page - 1) * itemsPerPage

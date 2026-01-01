@@ -15,12 +15,12 @@ export default function Carousel({ items }) {
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
-                loop={true} 
-                modules={[ Autoplay, Navigation, Pagination ]}
+                loop={true}
+                modules={[Autoplay, Navigation, Pagination]}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
-                }}  
+                }}
                 navigation={{
                     prevEl: `.${styles.prev}`,
                     nextEl: `.${styles.next}`,
@@ -35,8 +35,8 @@ export default function Carousel({ items }) {
                                 <div className={styles.container}>
                                     <img src={i.src} alt={i.alt} className={styles.image} />
                                     <div className={`${styles.textContainer} ${i.isDarkText ? styles.darkText : styles.lightText}`}>
-                                        <h1 className={styles.title}>{i.title}</h1>
-                                        <h2 className={styles.subTitle}>{i.subTitle}</h2>
+                                        {i.title && <h1 className={styles.title}>{i.title}</h1>}
+                                        {i.subTitle && <h2 className={styles.subTitle}>{i.subTitle}</h2>}
                                     </div>
                                 </div>
                             </a>

@@ -5,9 +5,10 @@ import { getData } from '@/common/apiService'
 import Carousel from '@/components/pages/main/Carousel/Carousel'
 import MainDiscography from '@/components/pages/main/MainDiscography/MainDiscography'
 import MainGallery from '@/components/pages/main/MainGallery/MainGallery'
+import MainVideo from "@/components/pages/main/MainVideo/MainVideo"
 
 export default async function Home() {
-	const [carouselItems, discographyItems, galleryItems] = await Promise.all([
+	const [carouselItems, discographyItems, galleryItems, videoItems] = await Promise.all([
 		getData('carousel', {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['carousel']
@@ -22,6 +23,11 @@ export default async function Home() {
 			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
 			tags: ['gallery']
 		}),
+		getData('video', { 
+			params: { limit: 3 },
+			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			tags: ['video']
+		}),
 	])
 
 	carouselItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
@@ -32,6 +38,7 @@ export default async function Home() {
 			<Carousel items={carouselItems?.items || []} />
 			<MainDiscography items={discographyItems?.items || []} />
 			<MainGallery items={galleryItems?.items || []} />
+			<MainVideo items={videoItems?.items || []} />
 		</>
 	)
 }

@@ -9,8 +9,23 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
+	metadataBase: new URL(
+		process.env.VERCEL_PROJECT_PRODUCTION_URL ?
+			`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+			: "https://zo.glass"
+	),
 	title: "Jo Yuri",
 	description: "Jo Yuri",
+	keywords: [
+		"Yuri",
+		"Jo Yuri",
+		"조유리",
+	],
+	openGraph: {
+		title: "Jo Yuri",
+		description: "Jo Yuri",
+		images: ["/assets/profile.jpg"],
+	},
 }
 
 export default function RootLayout({ children }) {

@@ -1,5 +1,20 @@
 import styles from "./page.module.css"
 
+export const metadata = {
+	title: "Jo Yuri - Terms of Use",
+	description: "zo.glass Terms of Use",
+	keywords: [
+		"Yuri",
+		"Jo Yuri",
+		"조유리",
+		"Jo Yuri Terms of Use",
+	],
+	openGraph: {
+		title: "Jo Yuri - Terms of Use",
+		description: "zo.glass Terms of Use",
+	},
+}
+
 export default function Terms() {
 	return (
 		<>

@@ -1,5 +1,20 @@
 import styles from "./page.module.css"
 
+export const metadata = {
+    title: "Jo Yuri - Profile",
+    description: "About Jo Yuri",
+    keywords: [
+        "Yuri",
+        "Jo Yuri",
+        "조유리",
+        "Jo Yuri Profile",
+    ],
+    openGraph: {
+        title: "Jo Yuri - Profile",
+        description: "About Jo Yuri",
+    },
+}
+
 export default function Profile() {
     return (
         <>

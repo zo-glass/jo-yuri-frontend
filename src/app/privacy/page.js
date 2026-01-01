@@ -1,5 +1,20 @@
 import styles from "./page.module.css"
 
+export const metadata = {
+	title: "Jo Yuri - Privacy Policy",
+	description: "zo.glass Privacy Policy",
+	keywords: [
+		"Yuri",
+		"Jo Yuri",
+		"조유리",
+		"Jo Yuri Privacy Policy",
+	],
+	openGraph: {
+		title: "Jo Yuri - Privacy Policy",
+		description: "zo.glass Privacy Policy",
+	},
+}
+
 export default function Privacy() {
 	return (
 		<>
